@@ -1,0 +1,10 @@
+{
+  "store_version": "1.0",
+  "packages": [
+    {
+      "title_id": "GAME00001",
+      "name": "Demo Game",
+      "pkg_url": "http://example.com/game.pkg"
+    }
+  ]
+}
