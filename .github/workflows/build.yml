@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up PS5 SDK & Toolchain
         run: |
@@ -24,7 +24,7 @@ jobs:
           make || gcc -s -O2 -shared -o payload.elf main.c
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ps5-payload
           path: "*.elf"
