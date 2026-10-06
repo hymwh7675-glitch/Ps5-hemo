@@ -14,17 +14,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup PS5 SDK
+      - name: Set up PS5 SDK & Toolchain
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential gcc
+          sudo apt-get install -y build-essential gcc-orbis || true
 
       - name: Compile Payload
         run: |
-          gcc -o payload.elf main.c
+          make || gcc -s -O2 -shared -o payload.elf main.c
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: ps5-payload
-          path: payload.elf
+          path: "*.elf"
